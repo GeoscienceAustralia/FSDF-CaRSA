@@ -1,0 +1,57 @@
+
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+    <style>
+        dt {font-weight: bold;}
+    </style>
+
+
+
+    <dl>
+        <dt><i><a title="{{ hasName['comment'] }}" href="{{ hasName['uri'] }}">{{ hasName['label'] }}</a></i></dt>
+        <dd><h2>{{ hasName['value'] }}</h2></dd>
+
+        <h4>SA1 {{ id }}</h4>
+        <p><code>{{ uri }}</code></p>
+
+
+        <iframe id="inlineFrameMap"
+            title="Map for {{ hasName['value'] }}"
+            width="100%"
+            height="300"
+            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+
+        </iframe>
+
+
+
+         <table class="pretty">
+            <tr><th>Property</th><th>Value</th></tr>
+            <tr><td><strong>All aged 65 and over</strong></td><td>{{ all_aged_65_and_over }}</td></tr>
+            <tr><td><strong>Includes persons aged 14 years and under</strong></td><td>{{ includes_persons_aged_14_years_and_under }}</td></tr>
+            <tr><td><strong>Includes an indigenous person</strong></td><td>{{ includes_an_indigenous_person }}</td></tr>
+            <tr><td><strong>Are a single parent household</strong></td><td>{{ are_a_single_parent_household }}</td></tr>
+            <tr><td><strong>Are in need of assistance for self care activities</strong></td><td>{{ are_in_need_of_assistance_for_self_care_activites }}</td></tr>
+            <tr><td><strong>Include persons not proficient in English</strong></td><td>{{ include_persons_not_proficient_in_english }}</td></tr>
+            <tr><td><strong>Do not have access to a motor vehicle</strong></td><td>{{ do_not_have_access_to_a_motor_vehicle }}</td></tr>
+            <tr><td><strong>No one has completed year 12 or higher</strong></td><td>{{ no_one_has_completed_year_12_or_higher }}</td></tr>
+            <tr><td><strong>Moved to the region in the last 1 year</strong></td><td>{{ moved_to_the_region_in_the_last_1_year }}</td></tr>
+            <tr><td><strong>Moved to the region in the last 5  years</strong></td><td>{{ moved_to_the_region_in_the_last_5_years }}</td></tr>
+            <tr><td><strong>Top 5 employing industries</strong></td><td>{{ top_5_employing_industries }}</td></tr>
+        </table>
+
+    </dl>
+    <br>
+    <p>
+        <dt>Alternative profiles and formats for this resource:</dt>
+    </p>
+    <ul>
+        <li><a href="?_profile=alt">Alternate profiles</a></li>
+    </ul>
+{% endblock %}
+
+
+

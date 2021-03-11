@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+    {% block content %}
+        <h1>SA1 AEIP</h1>
+        <h3>Beta version 0.0 based on pyLDAPI 3.8</h3>
+
+    <p> The Foundation Database is being hosted by Geoscience Australia, an Australian Government Agency. As an API
+    (application programming interface) this tool allows users to access the data in both human and machine readable forms. </p>
+    <p>As human readable data, the features are presented on descriptive web pages which include a map and hyperlinks to the data suppliers, the ontology, vocabularies and metadata.</p>
+        <p>As machine readable data it will be available for data integration and sharing, including combination with other datasets. </p>
+
+    <p>Technical feedback on this Register is most welcome,
+            and users are encouraged to contact us using "Contact us" link below.</p>
+
+    <h2>Register of LD APIs</h2>
+        <div class="grida">
+         {% for grouping in home_page_settings['REGISTER_OF_LD_APIs'] %}
+            {% for key, value in grouping.items() %}
+                <a class="box" href={{value}}>{{key}}</a>
+            {% endfor %}
+         {% endfor %}
+        </div>
+
+    {% endblock %}

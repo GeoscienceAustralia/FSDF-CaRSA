@@ -1,0 +1,61 @@
+
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+    <style>
+        dt {font-weight: bold;}
+    </style>
+
+
+
+    <dl>
+        <dt><i><a title="{{ hasName['comment'] }}" href="{{ hasName['uri'] }}">{{ hasName['label'] }}</a></i></dt>
+        <dd><h2>{{ hasName['value'] }}</h2></dd>
+
+        <h4>SA1 {{ id }}</h4>
+        <p><code>{{ uri }}</code></p>
+
+
+        <iframe id="inlineFrameMap"
+            title="Map for {{ hasName['value'] }}"
+            width="100%"
+            height="300"
+            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+
+        </iframe>
+
+
+         <table class="pretty">
+            <tr><th>Property</th><th>Value</th></tr>
+            <tr><td><strong>Power Station Major Fossil Fuel</strong></td><td>{{ power_station_major_fossil_fuel }}</td></tr>
+            <tr><td><strong>Power Station Major Renewable</strong></td><td>{{ power_station_major_renewable }}</td></tr>
+            <tr><td><strong>Transmission Substation</strong></td><td>{{ transmission_substation }}</td></tr>
+            <tr><td><strong>Transmission Electricity Lines Kms</strong></td><td>{{ transmission_electricity_lines_kms }}</td></tr>
+            <tr><td><strong>Liquid Fuel Refineries</strong></td><td>{{ liquid_fuel_refineries }}</td></tr>
+            <tr><td><strong>Liquid Fuel Terminals</strong></td><td>{{ liquid_fuel_terminals }}</td></tr>
+            <tr><td><strong>Liquid Fuel Depots</strong></td><td>{{ liquid_fuel_depots }}</td></tr>
+            <tr><td><strong>Liquid Fuel Petrol Stations</strong></td><td>{{ liquid_fuel_petrol_stations }}</td></tr>
+            <tr><td><strong>Gas Pipelines Kms</strong></td><td>{{ gas_pipelines_kms }}</td></tr>
+            <tr><td><strong>Oil Pipelines Kms</strong></td><td>{{ oil_pipelines_kms }}</td></tr>
+            <tr><td><strong>Offshore Extraction Platform</strong></td><td>{{ offshore_extraction_platform }}</td></tr>
+            <tr><td><strong>Waste Management Site</strong></td><td>{{ waste_management_site }}</td></tr>
+            <tr><td><strong>Waste Water Treatment Plant</strong></td><td>{{ waste_water_treatment_plant }}</td></tr>
+            <tr><td><strong>Major Dam Walls</strong></td><td>{{ major_dam_walls }}</td></tr>
+            <tr><td><strong>Telephone Exchange</strong></td><td>{{ telephone_exchange }}</td></tr>
+            <tr><td><strong>Broadcasting Studio Radio TV</strong></td><td>{{ broadcasting_studio_radio_tv }}</td></tr>
+        </table>
+
+    </dl>
+    <br>
+    <p>
+        <dt>Alternative profiles and formats for this resource:</dt>
+    </p>
+    <ul>
+        <li><a href="?_profile=alt">Alternate profiles</a></li>
+    </ul>
+{% endblock %}
+
+
+

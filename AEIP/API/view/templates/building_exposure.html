@@ -1,0 +1,58 @@
+
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+    <style>
+        dt {font-weight: bold;}
+    </style>
+
+
+
+    <dl>
+        <dt><i><a title="{{ hasName['comment'] }}" href="{{ hasName['uri'] }}">{{ hasName['label'] }}</a></i></dt>
+        <dd><h2>{{ hasName['value'] }}</h2></dd>
+
+        <h4>SA1 {{ id }}</h4>
+        <p><code>{{ uri }}</code></p>
+
+
+        <iframe id="inlineFrameMap"
+            title="Map for {{ hasName['value'] }}"
+            width="100%"
+            height="300"
+            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+
+        </iframe>
+
+
+
+         <table class="pretty">
+            <tr><th>Property</th><th>Value</th></tr>
+            <tr><td><strong>Population</strong></td><td>{{ population }}</td></tr>
+            <tr><td><strong>Dwellings</strong></td><td>{{ dwellings }}</td></tr>
+            <tr><td><strong>Buildings</strong></td><td>{{ buildings }}</td></tr>
+            <tr><td><strong>Pre 1980 Construction Count</strong></td><td>{{ pre_1980_construction_count }}</td></tr>
+            <tr><td><strong>Pre 1990 Probable Asbestos</strong></td><td>{{ pre_1990_probable_asbestos }}</td></tr>
+            <tr><td><strong>Residential Reconstruction Value</strong></td><td>{{ residential_reconstruction_value }}</td></tr>
+            <tr><td><strong>Residential Contents Value</strong></td><td>{{ residential_contents_value }}</td></tr>
+            <tr><td><strong>Commercial Building Count</strong></td><td>{{ commercial_building_count }}</td></tr>
+            <tr><td><strong>Commercial Reconstruction Value</strong></td><td>{{ commercial_reconstruction_value }}</td></tr>
+            <tr><td><strong>Industrial Building Count</strong></td><td>{{ industrial_building_count }}</td></tr>
+            <tr><td><strong>Industrial Reconstruction Value</strong></td><td>{{ industrial_reconstruction_value }}</td></tr>
+            <tr><td><strong>Residential Building Density (per km2)</strong></td><td>{{ residensity }}</td></tr>
+        </table>
+
+    </dl>
+    <br>
+    <p>
+        <dt>Alternative profiles and formats for this resource:</dt>
+    </p>
+    <ul>
+        <li><a href="?_profile=alt">Alternate profiles</a></li>
+    </ul>
+{% endblock %}
+
+
+

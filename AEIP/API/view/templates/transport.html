@@ -1,0 +1,54 @@
+
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+    <style>
+        dt {font-weight: bold;}
+    </style>
+
+
+
+    <dl>
+        <dt><i><a title="{{ hasName['comment'] }}" href="{{ hasName['uri'] }}">{{ hasName['label'] }}</a></i></dt>
+        <dd><h2>{{ hasName['value'] }}</h2></dd>
+
+        <h4>SA1 {{ id }}</h4>
+        <p><code>{{ uri }}</code></p>
+
+
+        <iframe id="inlineFrameMap"
+            title="Map for {{ hasName['value'] }}"
+            width="100%"
+            height="300"
+            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+
+        </iframe>
+
+
+         <table class="pretty">
+            <tr><th>Property</th><th>Value</th></tr>
+            <tr><td><strong>Airport Major Areas</strong></td><td>{{ airport_major_areas }}</td></tr>
+            <tr><td><strong>Airport Major Terminals</strong></td><td>{{ airport_major_terminals }}</td></tr>
+            <tr><td><strong>Airport Landing Grounds</strong></td><td>{{ airport_landing_grounds }}</td></tr>
+            <tr><td><strong>Roads Major Kms</strong></td><td>{{ roads_major_kms }}</td></tr>
+            <tr><td><strong>Roads Arterial And Sub Arterial_kms</strong></td><td>{{ roads_arterial_and_sub_arterial_kms }}</td></tr>
+            <tr><td><strong>Railway Track Kms</strong></td><td>{{ railway_track_kms }}</td></tr>
+            <tr><td><strong>Railway Stations</strong></td><td>{{ railway_stations }}</td></tr>
+            <tr><td><strong>Maritime Major Port</strong></td><td>{{ maritime_major_port }}</td></tr>
+            <tr><td><strong>Maritime Ferry Terminal</strong></td><td>{{ maritime_ferry_terminal }}</td></tr>
+        </table>
+
+    </dl>
+    <br>
+    <p>
+        <dt>Alternative profiles and formats for this resource:</dt>
+    </p>
+    <ul>
+        <li><a href="?_profile=alt">Alternate profiles</a></li>
+    </ul>
+{% endblock %}
+
+
+

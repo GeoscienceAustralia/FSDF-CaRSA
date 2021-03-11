@@ -1,0 +1,81 @@
+
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+    <style>
+        dt {font-weight: bold;}
+    </style>
+
+
+
+    <dl>
+        <dt><i><a title="{{ hasName['comment'] }}" href="{{ hasName['uri'] }}">{{ hasName['label'] }}</a></i></dt>
+        <dd><h2>{{ hasName['value'] }}</h2></dd>
+
+        <h4>SA1 {{ id }}</h4>
+        <p><code>{{ uri }}</code></p>
+
+
+        <iframe id="inlineFrameMap"
+            title="Map for {{ hasName['value'] }}"
+            width="100%"
+            height="300"
+            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+
+        </iframe>
+
+
+         <table class="pretty">
+            <tr><th>Property</th><th>Value</th></tr>
+            <tr><td><strong>wh_features</strong></td><td>{{ wh_features }}</td></tr>
+            <tr><td><strong>wh_total_area</strong></td><td>{{ wh_total_area }}</td></tr>
+            <tr><td><strong>wh_buffer_features</strong></td><td>{{ wh_buffer_features }}</td></tr>
+            <tr><td><strong>wh_total_buffer_area</strong></td><td>{{ wh_total_buffer_area }}</td></tr>
+            <tr><td><strong>nh_historic_features</strong></td><td>{{ nh_historic_features }}</td></tr>
+            <tr><td><strong>nh_total_historic_area</strong></td><td>{{ nh_total_historic_area }}</td></tr>
+            <tr><td><strong>nh_indigenous_features</strong></td><td>{{ nh_indigenous_features }}</td></tr>
+            <tr><td><strong>nh_total_indigenous_area</strong></td><td>{{ nh_total_indigenous_area }}</td></tr>
+            <tr><td><strong>nh_natural_features</strong></td><td>{{ nh_natural_features }}</td></tr>
+            <tr><td><strong>nh_total_natural_area</strong></td><td>{{ nh_total_natural_area }}</td></tr>
+            <tr><td><strong>ch_historic_features</strong></td><td>{{ ch_historic_features }}</td></tr>
+            <tr><td><strong>ch_total_historic_area</strong></td><td>{{ ch_total_historic_area }}</td></tr>
+            <tr><td><strong>ch_indigenous_features</strong></td><td>{{ ch_indigenous_features }}</td></tr>
+            <tr><td><strong>ch_total_indigenous_area</strong></td><td>{{ ch_total_indigenous_area }}</td></tr>
+            <tr><td><strong>ch_natural_features</strong></td><td>{{ ch_natural_features }}</td></tr>
+            <tr><td><strong>ch_total_natural_area</strong></td><td>{{ ch_total_natural_area }}</td></tr>
+            <tr><td><strong>capad_ia_features</strong></td><td>{{ capad_ia_features }}</td></tr>
+            <tr><td><strong>capad_ia_total_area</strong></td><td>{{ capad_ia_total_area }}</td></tr>
+            <tr><td><strong>capad_ib_features</strong></td><td>{{ capad_ib_features }}</td></tr>
+            <tr><td><strong>capad_ib_total_area</strong></td><td>{{ capad_ib_total_area }}</td></tr>
+            <tr><td><strong>capad_ii_features</strong></td><td>{{ capad_ii_features }}</td></tr>
+            <tr><td><strong>capad_ii_total_area</strong></td><td>{{ capad_ii_total_area }}</td></tr>
+            <tr><td><strong>capad_iii_features</strong></td><td>{{ capad_iii_features }}</td></tr>
+            <tr><td><strong>capad_iii_total_area</strong></td><td>{{ capad_iii_total_area }}</td></tr>
+            <tr><td><strong>capad_iv_features</strong></td><td>{{ capad_iv_features }}</td></tr>
+            <tr><td><strong>capad_iv_total_area</strong></td><td>{{ capad_iv_total_area }}</td></tr>
+            <tr><td><strong>capad_v_features</strong></td><td>{{ capad_v_features }}</td></tr>
+            <tr><td><strong>capad_v_total_area</strong></td><td>{{ capad_v_total_area }}</td></tr>
+            <tr><td><strong>capad_vi_features</strong></td><td>{{ capad_vi_features }}</td></tr>
+            <tr><td><strong>capad_vi_total_area</strong></td><td>{{ capad_vi_total_area }}</td></tr>
+            <tr><td><strong>ramsar_features</strong></td><td>{{ ramsar_features }}</td></tr>
+            <tr><td><strong>ramsar_total_area</strong></td><td>{{ ramsar_total_area }}</td></tr>
+            <tr><td><strong>ibra_features</strong></td><td>{{ ibra_features }}</td></tr>
+            <tr><td><strong>ibra_total_area</strong></td><td>{{ ibra_total_area }}</td></tr>
+            <tr><td><strong>nrm_features</strong></td><td>{{ nrm_features }}</td></tr>
+            <tr><td><strong>nrm_total_area</strong></td><td>{{ nrm_total_area }}</td></tr>
+        </table>
+
+    </dl>
+    <br>
+    <p>
+        <dt>Alternative profiles and formats for this resource:</dt>
+    </p>
+    <ul>
+        <li><a href="?_profile=alt">Alternate profiles</a></li>
+    </ul>
+{% endblock %}
+
+
+

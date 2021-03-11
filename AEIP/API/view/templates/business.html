@@ -1,0 +1,83 @@
+
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+    <style>
+        dt {font-weight: bold;}
+    </style>
+
+
+
+    <dl>
+        <dt><i><a title="{{ hasName['comment'] }}" href="{{ hasName['uri'] }}">{{ hasName['label'] }}</a></i></dt>
+        <dd><h2>{{ hasName['value'] }}</h2></dd>
+
+        <h4>SA1 {{ id }}</h4>
+        <p><code>{{ uri }}</code></p>
+
+
+        <iframe id="inlineFrameMap"
+            title="Map for {{ hasName['value'] }}"
+            width="100%"
+            height="300"
+            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+
+        </iframe>
+
+
+         <table class="pretty">
+            <tr><th>Property</th><th>Value</th></tr>
+            <tr><td><strong>Accommodation And Food Services</strong></td><td>{{ accommodation_and_food_services }}</td></tr>
+            <tr><td><strong>Administrative And Support Services</strong></td><td>{{ administrative_and_support_services }}</td></tr>
+            <tr><td><strong>Agriculture Forestry Fishing</strong></td><td>{{ agriculture_forestry_fishing }}</td></tr>
+            <tr><td><strong>Arts And Recreation Services</strong></td><td>{{ arts_and_recreation_services }}</td></tr>
+            <tr><td><strong>Construction</strong></td><td>{{ construction }}</td></tr>
+            <tr><td><strong>Education And Training</strong></td><td>{{ education_and_training }}</td></tr>
+            <tr><td><strong>Elect Gas Water Waste Services</strong></td><td>{{ elect_gas_water_waste_services }}</td></tr>
+            <tr><td><strong>Financial And Insurance Services</strong></td><td>{{ financial_and_insurance_services }}</td></tr>
+            <tr><td><strong>Health Care And Social Assistance</strong></td><td>{{ health_care_and_social_assistance }}</td></tr>
+            <tr><td><strong>Information Media And Telecommunications</strong></td><td>{{ information_media_and_telecommunications }}</td></tr>
+            <tr><td><strong>Manufacturing</strong></td><td>{{ manufacturing }}</td></tr>
+            <tr><td><strong>Mining</strong></td><td>{{ mining }}</td></tr>
+            <tr><td><strong>Other Services</strong></td><td>{{ other_services }}</td></tr>
+            <tr><td><strong>Professional Scientific And Technical Services</strong></td><td>{{ professional_scientific_and_technical_services }}</td></tr>
+            <tr><td><strong>Public Administration And Safety</strong></td><td>{{ public_administration_and_safety }}</td></tr>
+            <tr><td><strong>Rental Hiring And Real Estate Services</strong></td><td>{{ rental_hiring_and_real_estate_services }}</td></tr>
+            <tr><td><strong>Retail Trade</strong></td><td>{{ retail_trade }}</td></tr>
+            <tr><td><strong>Transport Postal And Warehousing</strong></td><td>{{ transport_postal_and_warehousing }}</td></tr>
+            <tr><td><strong>Wholesale Trade</strong></td><td>{{ wholesale_trade }}</td></tr>
+            <tr><td><strong>Unclassified Businesses</strong></td><td>{{ unclassified_businesses }}</td></tr>
+            <tr><td><strong>Total Number Of Businesses</strong></td><td>{{ total_number_of_businesses }}</td></tr>
+            <tr><td><strong>Number Of Registered Charity Organisations</strong></td><td>{{ number_of_registered_charity_organisations }}</td></tr>
+            <tr><td><strong>Agriculture And Fishing Support Services</strong></td><td>{{ agriculture_and_fishing_support_services }}</td></tr>
+            <tr><td><strong>Aquaculture</strong></td><td>{{ aquaculture }}</td></tr>
+            <tr><td><strong>Dairy Cattle Farming</strong></td><td>{{ dairy_cattle_farming }}</td></tr>
+            <tr><td><strong>Deer Farming</strong></td><td>{{ deer_farming }}</td></tr>
+            <tr><td><strong>Fishing</strong></td><td>{{ fishing }}</td></tr>
+            <tr><td><strong>Forestry And Logging</strong></td><td>{{ forestry_and_logging }}</td></tr>
+            <tr><td><strong>Forestry Support Services</strong></td><td>{{ forestry_support_services }}</td></tr>
+            <tr><td><strong>Fruit And Tree Nut Growing</strong></td><td>{{ fruit_and_tree_nut_growing }}</td></tr>
+            <tr><td><strong>Hunting And Trapping</strong></td><td>{{ hunting_and_trapping }}</td></tr>
+            <tr><td><strong>Mushroom And Vegetable Growing</strong></td><td>{{ mushroom_and_vegetable_growing }}</td></tr>
+            <tr><td><strong>Nursery And Floriculture Production</strong></td><td>{{ nursery_and_floriculture_production }}</td></tr>
+            <tr><td><strong>Other Crop Growing</strong></td><td>{{ other_crop_growing }}</td></tr>
+            <tr><td><strong>Other Livestock Farming</strong></td><td>{{ other_livestock_farming }}</td></tr>
+            <tr><td><strong>Poultry Farming</strong></td><td>{{ poultry_farming }}</td></tr>
+            <tr><td><strong>Sheep Beef Cattle And Grain Farming</strong></td><td>{{ sheep_beef_cattle_and_grain_farming }}</td></tr>
+            <tr><td><strong>Total Nnumber Of Primary Producers</strong></td><td>{{ total_number_of_primary_producers }}</td></tr>
+        </table>
+
+    </dl>
+    <br>
+    <p>
+        <dt>Alternative profiles and formats for this resource:</dt>
+    </p>
+    <ul>
+        <li><a href="?_profile=alt">Alternate profiles</a></li>
+    </ul>
+{% endblock %}
+
+
+

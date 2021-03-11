@@ -1,0 +1,69 @@
+
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+    <style>
+        dt {font-weight: bold;}
+    </style>
+
+
+
+    <dl>
+        <dt><i><a title="{{ hasName['comment'] }}" href="{{ hasName['uri'] }}">{{ hasName['label'] }}</a></i></dt>
+        <dd><h2>{{ hasName['value'] }}</h2></dd>
+
+        <h4>SA1 {{ id }}</h4>
+        <p><code>{{ uri }}</code></p>
+
+
+        <iframe id="inlineFrameMap"
+            title="Map for {{ hasName['value'] }}"
+            width="100%"
+            height="300"
+            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+
+        </iframe>
+
+
+
+         <table class="pretty">
+            <tr><th>Property</th><th>Value</th></tr>
+            <tr><td><strong>SA2 Code</strong></td><td>{{ SA2_code }}</td></tr>
+            <tr><td><strong>SA2 Name</strong></td><td>{{ SA2_name }}</td></tr>
+            <tr><td><strong>SA3 Code</strong></td><td>{{ SA3_code }}</td></tr>
+            <tr><td><strong>SA3 Name</strong></td><td>{{ SA3_name }}</td></tr>
+            <tr><td><strong>SA4 Code</strong></td><td>{{ SA4_code }}</td></tr>
+            <tr><td><strong>SA4 Name</strong></td><td>{{ SA4_name }}</td></tr>
+            <tr><td><strong>GCC Code</strong></td><td>{{ GCC_code }}</td></tr>
+            <tr><td><strong>GCC Name</strong></td><td>{{ GCC_name }}</td></tr>
+            <tr><td><strong>STE Code</strong></td><td>{{ STE_code }}</td></tr>
+            <tr><td><strong>STE Name</strong></td><td>{{ STE_name }}</td></tr>
+            <tr><td><strong>Area in sqkm</strong></td><td>{{ area_sqkm }}</td></tr>
+            <tr><td><strong>LGA within AOI</strong></td><td>{{ lgs }}</td></tr>
+            <tr><td><strong>Localities within AOI</strong></td><td>{{ localities }}</td></tr>
+            <tr><td><strong>AusPIX DGGS location</strong></td>
+                <td> <ul>
+                    {%- for item in ausPIX_DGGS -%}
+                    <!--<dd><a href="{{ item['uri'] }}">{{ item['label'] }}</a></dd>-->
+                    <a href="{{ item['uri'] }}">{{ item['label'] }}  </a>
+                     {%- endfor -%}
+                    </ul>
+                </td>
+            </tr>
+            <tr><td><strong>Geometry(WKT)</strong></td><td>{{ wkt }}</td></tr>
+        </table>
+
+    </dl>
+    <br>
+    <p>
+        <dt>Alternative profiles and formats for this resource:</dt>
+    </p>
+    <ul>
+        <li><a href="?_profile=alt">Alternate profiles</a></li>
+    </ul>
+{% endblock %}
+
+
+

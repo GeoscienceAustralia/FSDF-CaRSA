@@ -1,0 +1,67 @@
+
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+    <style>
+        dt {font-weight: bold;}
+    </style>
+
+
+
+    <dl>
+        <dt><i><a title="{{ hasName['comment'] }}" href="{{ hasName['uri'] }}">{{ hasName['label'] }}</a></i></dt>
+        <dd><h2>{{ hasName['value'] }}</h2></dd>
+
+        <h4>SA1 {{ id }}</h4>
+        <p><code>{{ uri }}</code></p>
+
+
+        <iframe id="inlineFrameMap"
+            title="Map for {{ hasName['value'] }}"
+            width="100%"
+            height="300"
+            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+
+        </iframe>
+
+
+         <table class="pretty">
+            <tr><th>Property</th><th>Value</th></tr>
+            <tr><td><strong>School Pre Primary</strong></td><td>{{ school_pre_primary }}</td></tr>
+            <tr><td><strong>School Secondary</strong></td><td>{{ school_secondary }}</td></tr>
+            <tr><td><strong>School Tertiary</strong></td><td>{{ school_tertiary }}</td></tr>
+            <tr><td><strong>School Other</strong></td><td>{{ school_other }}</td></tr>
+            <tr><td><strong>Hospital Public</strong></td><td>{{ hospital_public }}</td></tr>
+            <tr><td><strong>Hospital Private</strong></td><td>{{ hospital_private }}</td></tr>
+            <tr><td><strong>Nursing Home</strong></td><td>{{ nursing_home }}</td></tr>
+            <tr><td><strong>Retirement Home</strong></td><td>{{ retirement_home }}</td></tr>
+            <tr><td><strong>Police Station</strong></td><td>{{ police_station }}</td></tr>
+            <tr><td><strong>Fire Station</strong></td><td>{{ fire_station }}</td></tr>
+            <tr><td><strong>Ambulance Station</strong></td><td>{{ ambulance_station }}</td></tr>
+            <tr><td><strong>SES Facility</strong></td><td>{{ ses_facility }}</td></tr>
+            <tr><td><strong>Emergency Management Facility</strong></td><td>{{ emergency_management_facility }}</td></tr>
+            <tr><td><strong>Federal Court</strong></td><td>{{ federal_court }}</td></tr>
+            <tr><td><strong>Medicare Office</strong></td><td>{{ medicare_office }}</td></tr>
+            <tr><td><strong>Centrelink Office</strong></td><td>{{ centrelink_office }}</td></tr>
+            <tr><td><strong>Diplomatic Facility</strong></td><td>{{ diplomatic_facility }}</td></tr>
+            <tr><td><strong>Cnsulate Facility</strong></td><td>{{ consulate_facility }}</td></tr>
+            <tr><td><strong>Major Defence Facility</strong></td><td>{{ major_defence_facility }}</td></tr>
+            <tr><td><strong>Correctional Facility</strong></td><td>{{ correctional_facility }}</td></tr>
+            <tr><td><strong>Immigration Detention Facility</strong></td><td>{{ immigration_detention_facility }}</td></tr>
+            <tr><td><strong>Local Government Office</strong></td><td>{{ local_government_office }}</td></tr>
+        </table>
+
+    </dl>
+    <br>
+    <p>
+        <dt>Alternative profiles and formats for this resource:</dt>
+    </p>
+    <ul>
+        <li><a href="?_profile=alt">Alternate profiles</a></li>
+    </ul>
+{% endblock %}
+
+
+

@@ -1,0 +1,20 @@
+home_page_boxes:
+  REGISTER_OF_LD_APIs:
+  - {Location Information: "/loc_info/"}
+  - {Building Exposure: "/building_exposure/"}
+  - {SEIFA: "/SEIFA/"}
+  - {Demographic Exposure: "/demographic_exposure/"}
+  - {Economic Exposure: "/economic_exposure/"}
+  - {Institution Exposure: "/institution_exposure/"}
+  - {Transport Exposure: "/transport_exposure/"}
+  - {Utility Exposure: "/utility_exposure/"}
+  - {Business Exposure: "/business_exposure/"}
+  - {Agriculture Exposure: "/agriculture_exposure/"}
+  - {Environment Exposure: "/environment_exposure/"}
+  DEFINITIONAL:
+  - {Vocabularies: "http://ldweb.ga.gov.au/def/voc/ga/"}
+  - {Ontologies: "http://pid.geoscience.gov.au/def/ont/ga/"}
+  - {Schemas: "http://pid.geoscience.gov.au/def/schema/ga/"}
+  OTHER:
+  - {Organisation: "/survey/ga/"}
+  - {Organisation3: "/survey/ga/"}

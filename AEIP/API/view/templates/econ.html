@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+    <style>
+        dt {font-weight: bold;}
+    </style>
+
+
+
+    <dl>
+        <dt><i><a title="{{ hasName['comment'] }}" href="{{ hasName['uri'] }}">{{ hasName['label'] }}</a></i></dt>
+        <dd><h2>{{ hasName['value'] }}</h2></dd>
+
+        <h4>SA1 {{ id }}</h4>
+        <p><code>{{ uri }}</code></p>
+
+
+        <iframe id="inlineFrameMap"
+            title="Map for {{ hasName['value'] }}"
+            width="100%"
+            height="300"
+            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+
+        </iframe>
+
+
+
+         <table class="pretty">
+            <tr><th>Property</th><th>Value</th></tr>
+            <tr><td><strong>Are low income 1 to 499 wk</strong></td><td>{{ are_low_income_1_to_499_wk }}</td></tr>
+            <tr><td><strong>Are medium income 500 to 1499 wk</strong></td><td>{{ are_medium_income_500_to_1499_wk }}</td></tr>
+            <tr><td><strong>Are high income 1500 plus wk</strong></td><td>{{ are_high_income_1500_plus_wk }}</td></tr>
+            <tr><td><strong>Are in public housing</strong></td><td>{{ are_in_public_housing }}</td></tr>
+            <tr><td><strong>Are all unemployed</strong></td><td>{{ are_all_unemployed }}</td></tr>
+        </table>
+
+    </dl>
+    <br>
+    <p>
+        <dt>Alternative profiles and formats for this resource:</dt>
+    </p>
+    <ul>
+        <li><a href="?_profile=alt">Alternate profiles</a></li>
+    </ul>
+{% endblock %}
+
+
+

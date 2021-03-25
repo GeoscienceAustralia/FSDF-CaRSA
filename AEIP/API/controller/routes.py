@@ -131,7 +131,7 @@ def sa1_environment_element(envi_id):
 
 
 
-@routes.route('/map')
+@routes.route('/map', methods = ['POST', 'GET'])
 def show_map():
     '''
     Function to render a map around the specified line
@@ -140,9 +140,14 @@ def show_map():
     # import pdb
     # pdb.set_trace()
 
-    name = request.values.get('name')
-    coords_list = ast.literal_eval(request.values.get('coords'))
-    geom_type = request.values.get('geom_type')
+    if request.method == 'GET':
+        name = request.values.get('name')
+        coords_list = ast.literal_eval(request.values.get('coords'))
+        geom_type = request.values.get('geom_type')
+    else:
+        name = request.form.get('name')
+        coords_list = ast.literal_eval(request.form.get('coords'))
+        geom_type = request.form.get('geom_type')
 
     if geom_type == "MultiPolygon":
         poly_points = []
@@ -287,3 +292,5 @@ def get_register_items():
                             search_query=search_string,
                             search_enabled=True
                             ).render()
+
+

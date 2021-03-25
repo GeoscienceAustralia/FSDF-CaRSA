@@ -101,6 +101,14 @@ class SA1_LOC_INFO(Renderer):
             # get geometry from database
             self.geom = ast.literal_eval(row[-1])
             self.featureCords = self.geom['coordinates']
+            # import pdb
+            # pdb.set_trace()
+
+            # for list_lv1 in self.featureCords:
+            #     for list_lv2 in list_lv1:
+            #         for list_lv3 in list_lv2:
+
+
             self.wkt = row[-2]
             self.geometry_type = self.geom['type']
 

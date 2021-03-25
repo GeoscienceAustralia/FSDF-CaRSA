@@ -17,14 +17,23 @@
         <h4>SA1 {{ id }}</h4>
         <p><code>{{ uri }}</code></p>
 
+        <form target="inlineFrameMap" id="map_form" action="{{ url_for('controller.show_map') }}" method="post">
+            <input type='hidden' name="name" value="{{ hasName['value']|urlencode }}">
+            <input type='hidden' name="coords" value="{{ coordinate_list }}">
+            <input type='hidden' name="geom_type" value="{{ geometry_type }}">
+        </form>
 
-        <iframe id="inlineFrameMap"
-            title="Map for {{ hasName['value'] }}"
-            width="100%"
-            height="300"
-            src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">
+        <iFrame src="" width="100%" height="300" name="inlineFrameMap"></iFrame>
+        <script type="text/javascript">document.getElementById("map_form").submit();</script>
 
-        </iframe>
+
+        <!--<iframe id="inlineFrameMap"-->
+            <!--title="Map for {{ hasName['value'] }}"-->
+            <!--width="100%"-->
+            <!--height="300"-->
+            <!--src="{{ url_for('controller.show_map') }}?name={{ hasName['value']|urlencode }}&coords={{ coordinate_list }}&geom_type={{ geometry_type }}">-->
+
+        <!--</iframe>-->
 
 
          <table class="pretty">

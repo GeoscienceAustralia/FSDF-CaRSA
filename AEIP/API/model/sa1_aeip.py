@@ -21,7 +21,7 @@ from rhealpixdggs import dggs
 rdggs = dggs.RHEALPixDGGS()
 
 # TABLE_NAME = 'AEIP_SA1join84'
-TABLE_NAME = 'AEIP_SA1_84withResdensityv11'
+TABLE_NAME = 'aeip_sa1_84withresdensityv11'
 NAME_FIELD = 'SA1_MAIN16'
 
 
